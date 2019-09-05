@@ -36,14 +36,14 @@ public class TipoEmpaqueRestController {
 
     @ApiOperation(value = "Listar Tipos Empaques", notes = "Servicio para listar los tipos de empaques")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Lista de tipos de empaques")})
-    @GetMapping("tiposempaque")
+    @GetMapping("/tiposempaque")
     public List<TipoEmpaque> index() {
         return this.tipoEmpaqueService.findAll();
     }
 
     @ApiOperation(value = "Paginar listado de Tipos de Empaques", notes = "Servicio para listar los tipos de Empaques paginados")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Lista de tipos de Empaques paginados")})
-    @GetMapping("tiposempaque/page/{page}")
+    @GetMapping("/tiposempaque/page/{page}")
     public Page<TipoEmpaque> index(@PathVariable Integer page){
         Pageable pageable = PageRequest.of(page, 5);
         return tipoEmpaqueService.findAll(pageable);
@@ -52,7 +52,7 @@ public class TipoEmpaqueRestController {
     @ApiOperation(value = "Buscar tipos de Empaque por Id", notes = "Servicio para buscar tipos de Empaque por codigo")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Tipo de Empaque encontrado"),
             @ApiResponse(code = 404, message = "Tipo de Empaque no encontrado")})
-    @GetMapping("tiposempaque/{id}")
+    @GetMapping("/tiposempaque/{id}")
     public ResponseEntity<?> show(@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         TipoEmpaque tipoEmpaqueEncontrada = this.tipoEmpaqueService.findById(id);
@@ -68,7 +68,7 @@ public class TipoEmpaqueRestController {
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Tipo de Empaque creado"),
             @ApiResponse(code = 400, message = "Existen errores en el ingreso de datos"),
             @ApiResponse(code = 500, message = "Error en el servidor al crear tipoEmpaque")})
-    @PostMapping("tiposempaque")
+    @PostMapping("/tiposempaque")
     public ResponseEntity<?> create (@Valid @RequestBody TipoEmpaque elemento, BindingResult result){
         TipoEmpaque nuevo = null;
         Map<String, Object> response = new HashMap<>();
@@ -94,7 +94,7 @@ public class TipoEmpaqueRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @PutMapping("tiposempaque/{id}")
+    @PutMapping("/tiposempaque/{id}")
     public  ResponseEntity<?> update (@Valid @RequestBody TipoEmpaque tipoEmpaque, BindingResult result, @PathVariable Long id){
 
         Map<String, Object> response = new HashMap<>();
@@ -131,7 +131,7 @@ public class TipoEmpaqueRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("tipoempaques/{id}")
+    @DeleteMapping("/tiposempaque/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         try{

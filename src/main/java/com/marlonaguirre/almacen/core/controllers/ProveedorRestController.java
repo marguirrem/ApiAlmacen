@@ -134,7 +134,7 @@ public class ProveedorRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("proveedores/{id}")
+    @DeleteMapping("/proveedores/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         try{

@@ -133,7 +133,7 @@ public class DetalleCompraRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("detallecompras/{id}")
+    @DeleteMapping("/detallecompras/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         try{

@@ -132,7 +132,7 @@ public class ClienteRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("clientes/{nit}")
+    @DeleteMapping("/clientes/{nit}")
     public ResponseEntity<?> delete (@PathVariable String nit){
         Map<String, Object> response = new HashMap<>();
         try{

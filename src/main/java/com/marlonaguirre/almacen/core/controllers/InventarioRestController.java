@@ -135,7 +135,7 @@ public class InventarioRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("inventarios/{id}")
+    @DeleteMapping("/inventarios/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         try{

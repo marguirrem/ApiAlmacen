@@ -132,7 +132,7 @@ public class TelefonoClienteRestController {
         return  new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("telefonoclientes/{id}")
+    @DeleteMapping("/telefonoclientes/{id}")
     public ResponseEntity<?> delete (@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         try{
